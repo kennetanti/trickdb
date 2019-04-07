@@ -1,5 +1,7 @@
 const http = require('http');
 const url = require('url');
+const sqltomango = require('sqltomango');
+const backend = require('./backend-couch.js');
 
 const hostname = '0.0.0.0';
 const port = 8123;
@@ -16,6 +18,19 @@ function collectRequestData(request, callback) {
 
 function handleSqlQuery(sqlquery, callback) {
 	console.log("QUERY: ${sqlquery}");
+	
+	mangoQuery = sqltomango.parse(sqlquery);
+	
+	console.log(mangoQuery);
+	
+	callback(mangoQuery);
+	
+}
+
+function runQuery(mangoQuery, callback) {
+	backend.query(mangoQuery, result => {
+		callback(result);
+	});
 	
 }
 

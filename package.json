@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/kennetanti/trickdb#readme",
   "dependencies": {
-    "sqltomango": "^1.2.3"
+    "node-couchdb": "^1.3.0",
+    "node-sqlparser": "^1.0.4"
   }
 }

@@ -1,0 +1,12 @@
+version: '2'
+services:
+  couchdb:
+    image: couchdb:2.3
+    environment:
+      COUCHDB_DEV_INIT: 'true'
+      COUCHDB_ADMIN_USER: security
+      COUCHDB_ADMIN_PASS: isimportant
+      ERLANG_COOKIE: anigav
+    ports:
+      - "5984:5984"
+      - "5986:5986"
